@@ -1,7 +1,7 @@
 function l(e) {
   return `${e[0].toUpperCase()}${e.slice(1)}`;
 }
-const n = {
+const c = {
   red: "#f87171",
   green: "#4ade80",
   blue: "#60a5fa",
@@ -16,42 +16,42 @@ const n = {
   underline: "text-decoration:underline;",
   linethrough: "text-decoration:line-through;"
 };
-function u() {
-  return Object.entries(n).reduce((e, [r, t]) => (e[r] = `color: ${t};`, e), {});
+function s() {
+  return Object.entries(c).reduce((e, [r, t]) => (e[r] = `color: ${t};`, e), {});
 }
-function a() {
-  return Object.entries(n).reduce((e, [r, t]) => {
-    const o = `bg${l(r)}`;
-    return e[o] = `background-color: ${t};padding: 0 2px;`, e;
+function u() {
+  return Object.entries(c).reduce((e, [r, t]) => {
+    const n = `bg${l(r)}`;
+    return e[n] = `background-color: ${t};padding: 0 2px;`, e;
   }, {});
 }
-const f = {
-  ...a(),
+const a = {
+  ...u(),
   ...i,
-  ...u()
-}, s = ["info", "log", "warn", "error"];
+  ...s()
+}, f = ["info", "log", "warn", "error"];
 function d(e) {
   return function(...r) {
     let t = "";
-    const o = [];
-    r.forEach((c) => {
-      t += c[0], o.push(c[1]);
-    }), console[e](t, ...o);
+    const n = [];
+    r.forEach((o) => {
+      t += o[0], n.push(o[1]);
+    }), console[e](t, ...n);
   };
 }
 function g() {
   let e = "";
   const r = (t) => {
-    const o = e;
-    return e = "", [`%c${t}`, o];
+    const n = e;
+    return e = "", [`%c${t}`, n];
   };
-  return Object.entries(f).forEach(([t, o]) => {
+  return Object.entries(a).forEach(([t, n]) => {
     Object.defineProperty(r, t, {
       get() {
-        return e += o, r;
+        return e += n, r;
       }
     });
-  }), s.forEach((t) => r[t] = d(t)), r;
+  }), f.forEach((t) => r[t] = d(t)), r;
 }
 const b = g();
 export {
